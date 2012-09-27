@@ -1,0 +1,9 @@
+/! Header
+header
+	.row
+	  .twelve.columns
+	    h1
+	    	= t(translate_path + '.title', :default => '').presence || 'Untitled'
+			h4
+				= t(translate_path + '.description', :default => '').presence || 'Please edit the i18n local file for this page.'
+/! End Header

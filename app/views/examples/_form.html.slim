@@ -1,0 +1,11 @@
+= form_for @example, :html => {:multipart => true} do |f|
+  .field
+    = f.text_field :title
+  .field
+    = f.text_field :url
+  .field
+    = f.text_area :description
+  .field
+  	= f.file_field :image
+  .actions
+  	= f.submit 'Save'

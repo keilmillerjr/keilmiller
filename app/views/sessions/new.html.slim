@@ -1,0 +1,22 @@
+= render 'shared/header'
+
+/! Main Page Content
+#mainContent
+  .row
+    /! New Session Sidebar
+    .six.columns.push-six
+
+    /! New Session
+    .six.columns.pull-six
+      = display_flash_messages
+      = form_tag login_path do
+        .field
+          = label_tag(:email, 'Email')
+          = text_field_tag :email, nil, :placeholder => 'your email'
+        .field
+          = label_tag(:password, 'Password')
+          = password_field_tag :password, nil, :placeholder => 'password'
+        .actions
+          = submit_tag 'Log In', :class => 'nice small radius blue button'
+
+/! End Main Content and Sidebar

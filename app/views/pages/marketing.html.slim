@@ -1,0 +1,82 @@
+= render 'shared/master_header'
+
+/! Main Page Content
+#mainContent
+  .row
+    /! Marketing
+    #marketing.twelve.columns
+      = display_flash_messages
+
+      /! Recent Work
+      section#recentWork
+        h1 Some of my recent work.
+        h4.subheader Want to know what I am working on? Look here.
+
+        - if @examples.count >= 1
+          ul.examples.block-grid.three-up.mobile-one-up
+            - @examples.each do |example|
+              li.example
+                - if example.url
+                  = link_to image_tag(example.image_url), example.url
+                - else
+                  = image_tag example.image_url
+                - if current_user
+                  div
+                    ul.button-group
+                      li
+                        = link_to 'Edit', edit_example_path(example), :class => 'small secondary button'
+                        = link_to 'Destroy', example, :confirm => 'Are you sure?', :method => :delete, :class => 'small alert button'
+                h4.subheader = example.title
+                p = example.description
+        - else
+          p I currently have no examples of my recent work.
+
+        - if current_user
+          = link_to 'New Example', new_example_path, :class => 'button'
+
+      hr
+
+      /! Code School
+      section#codeSchool
+        h1 My Code School badges.
+        h4.subheader
+          ' Earning course completion badges from
+          =' link_to 'Code School', 'http://www.codeschool.com/users/tuscanidream', :target => '_blank'
+          |  is fun and educational.
+
+        - if codeschool_completed_courses
+          .panel
+            ul.badges.block-grid.eight-up.mobile-four-up
+              - codeschool_completed_courses.each do |course|
+                li
+                  = link_to course['url'], :target => '_blank' do
+                    = image_tag(course['badge'], :size => '118x117')
+                    p.hide-for-small
+                      = course['title']
+
+        - else
+          p There was an error retrieving the badges.
+
+      hr
+
+      /! Team Treehouse
+      section#teamTreehouse
+        h1 My Team Treehouse badges.
+        h4.subheader
+          =' link_to 'Team Treehouse', 'http://teamtreehouse.com/keilmiller', :target => '_blank'
+          | rewards you with badges for completing quizes and code challenges.
+   
+        - if treehouse_badges
+          .panel
+            ul.badges.block-grid.eight-up.mobile-four-up
+              - treehouse_badges.each do |badge|
+                li
+                  = link_to badge['url'], :target => '_blank' do
+                    = image_tag(badge['icon_url'], :size => '118x117')
+                    p.hide-for-small
+                      = badge['name']
+
+        - else
+          p There was an error retrieving the badges.
+
+/! End Main Content

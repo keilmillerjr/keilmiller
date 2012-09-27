@@ -1,0 +1,27 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  # Global translations
+  brand: keil miller
+
+  # Local translations
+  examples:
+    new:
+      title: New portfolio piece
+      description: Show the world your work.
+    edit:
+      title: Edit portfolio piece
+      description: Made a mistake? Edit it.
+  inquiries:
+    new:
+      title: Contact
+      description: Have a question? Feel free to ask.
+  pages:
+    kudos:
+      title: Kudos
+      description: This site was made possible due to a collaboration of efforts.
+  sessions:
+    new:
+      title: Log In
+      description: Please enter your credentials.

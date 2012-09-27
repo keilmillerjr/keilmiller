@@ -1,0 +1,43 @@
+@import compass/css3
+@import foundation_and_overrides
+@import font-awesome
+
+// Elements
+h1, h2, h3, h4, h5
+  font-weight: 500
+
+input[type*=file]
+  margin-bottom: 12px
+
+// Content
+
+nav.top-bar
+  margin-bottom: 0
+  .name a:hover
+    color: $mainColor !important
+
+header
+  background-image: #6ec51b
+  +background(linear-gradient(top, #8ae234 0%, #73d216 50%, #4e9a06 100%))
+  padding: 22px 0
+  h1
+    font-weight: 500
+  h4
+    color: $white
+    font-weight: 300
+
+div#mainContent
+  margin: 44px 0
+  overflow: hidden
+
+footer
+  background-color: #3f3f3f
+  color: $white
+  padding: 11px 0
+  margin-top: 44px
+  a
+    color: $topBarLinkColor
+    &:hover
+      color: darken($topBarLinkColor, 15%)
+  p, ul.link-list
+    margin-bottom: 0

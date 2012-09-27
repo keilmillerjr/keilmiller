@@ -1,0 +1,26 @@
+= render 'shared/header'
+
+/! Main Page Content and Sidebar
+#mainContent
+  .row
+    /! Form
+    .twelve.columns
+      = form_for @example, :html => {:multipart => true} do |f|
+        .row
+          .six.columns.push-six
+            = image_tag @example.image_url
+            .field
+              = f.file_field :image, :label => 'Upload New Image'
+            .field
+              = f.check_box :remove_image, :label => 'Remove Current Image'
+          .six.columns.pull-six
+            .field
+              = f.text_field :title
+            .field
+              = f.text_field :url
+            .field
+              = f.text_area :description
+            .actions
+              = f.submit 'Save'
+
+/! End Main Content

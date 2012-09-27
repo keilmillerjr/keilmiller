@@ -1,0 +1,18 @@
+= render 'shared/master_header'
+
+/! Main Page Content
+#mainContent
+  .row
+    /! New User Sidebar
+    .six.columns.push-six
+
+    /! New User
+    .six.columns.pull-six
+      = display_flash_messages
+      = form_for_with_foundation @user, :url => signup_path do |f|
+        = f.text_field :email, :placeholder => 'your email'
+        = f.password_field :password, :placeholder => 'password'
+        = f.password_field :password_confirmation, :placeholder => 're-type password'
+        = f.submit 'Sign Up'
+
+/! End Main Content and Sidebar

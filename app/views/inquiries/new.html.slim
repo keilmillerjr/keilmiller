@@ -1,0 +1,30 @@
+= render 'shared/header'
+
+/! Main Page Content and Sidebar
+#mainContent
+  .row
+    /! Contact Sidebar
+    .six.columns.push-six
+        p You may click the letter icon below or fill out the form to send me a message.
+          
+        ul.link-list
+          li
+            = mail_to 'tuscanidream@me.com', '', :encode => 'hex', :class => 'fc-webicon mail large'
+          li
+            a href="https://github.com/keilmillerjr" class="fc-webicon github large"
+          li
+            a href="https://twitter.com/keilmillerjr" class="fc-webicon twitter large"
+
+    /! Contact
+    .six.columns.pull-six
+      = display_flash_messages
+      = form_for_with_foundation @inquiry do |f|
+        = f.text_field :name, :placeholder => 'your name'
+        = f.text_field :email, :placeholder => 'your email'
+        = f.text_area :content, :label => 'Message', :placeholder => 'write me a message'
+        p
+          i.icon-check
+          |  Your email address will not be published or shared.
+        = f.submit 'Send Message'
+
+/! End Main Content and Sidebar
